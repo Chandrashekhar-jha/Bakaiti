@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { MoveRight, BookOpen, Quote, Share2, ArrowLeft, Users, Shield } from "lucide-react";

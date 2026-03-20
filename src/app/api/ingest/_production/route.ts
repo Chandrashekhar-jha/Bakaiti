@@ -1,5 +1,6 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
-import { supabaseService } from "@/lib/supabaseServer";
+import { getSupabaseService } from "@/lib/supabaseServer";
 
 interface RawElectionData {
   State_Name: string;
@@ -27,6 +28,7 @@ export async function GET() {
     for (const raw of PRODUCTION_DATA) {
       console.log(`Processing ${raw.State_Name} ${raw.Year}...`);
       
+      const supabaseService = getSupabaseService();
       // 1. Get or Create State
       const slug = raw.State_Name.toLowerCase().replace(/\s+/g, '-');
       let { data: state } = await supabaseService.from('states').select('id').eq('slug', slug).single();

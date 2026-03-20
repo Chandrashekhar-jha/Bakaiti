@@ -1,4 +1,4 @@
-import { db } from './db_client.ts';
+import { db } from './db_client';
 
 interface RawElectionData {
   State_Name: string;
